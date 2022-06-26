@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>net6.0</TargetFrameworks>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Authors>Michael Geissler</Authors>
+	  <Company>Tiveria Embedded Solutions GmbH</Company>
+	  <Description>A small library for the Homie 4.0 home IoT standard.</Description>
+	  <Copyright>Michael Geissler</Copyright>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <PackageProjectUrl>https://github.com/toolsfactory/Toolsfactory.Protocols.Homie</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/toolsfactory/Toolsfactory.Protocols.Homie</RepositoryUrl>
+	  <RepositoryType>GIT</RepositoryType>
+	  <LangVersion>latest</LangVersion>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageLicenseExpression>LGPL-3.0-only</PackageLicenseExpression>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup Condition="">
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+    <PackageReference Include="MQTTnet" Version="3.1.2" />
+    <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.1.2" />
+  </ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<LangVersion>latest</LangVersion>
+		<OutputPath>..\..\bin</OutputPath>
+		<DefineConstants>$(DefineConstants)</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<LangVersion>latest</LangVersion>
+		<OutputPath>..\..\bin</OutputPath>
+		<DefineConstants>$(DefineConstants)</DefineConstants>
+	</PropertyGroup>	
+  
+</Project>
