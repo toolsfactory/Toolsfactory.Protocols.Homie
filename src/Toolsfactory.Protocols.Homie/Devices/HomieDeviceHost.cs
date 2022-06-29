@@ -11,13 +11,13 @@ namespace Toolsfactory.Protocols.Homie.Devices
     public class HomieDeviceHost : IDeviceHost, IConnectingFailedHandler
     {
         private readonly Device _device;
-        private readonly HomieHostConfiguration _config;
+        private readonly HomieMqttServerConfiguration _config;
         private readonly IManagedMqttClient _mqttClient;
         private readonly Dictionary<string, Action<string, string>> _subscriptions = new();
         private readonly Dictionary<string, Action<string, string>> _subscriptionsWithWildcard = new();
 
 
-        public HomieDeviceHost(Device device, HomieHostConfiguration config, ILogger<HomieDeviceHost> logger)
+        public HomieDeviceHost(Device device, HomieMqttServerConfiguration config, ILogger<HomieDeviceHost> logger)
         {
             _device = device;
             _config = config;
@@ -68,7 +68,7 @@ namespace Toolsfactory.Protocols.Homie.Devices
 
             var clientopts = new MqttClientOptionsBuilder()
                 .WithClientId(_device.Id + "_client")
-                .WithTcpServer(_config.TcpServer, _config.Port)
+                .WithTcpServer(_config.Address, _config.Port)
                 .WithWillMessage(lastwill);
 
             if (!String.IsNullOrWhiteSpace(_config.Username))
