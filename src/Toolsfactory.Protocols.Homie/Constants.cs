@@ -5,7 +5,7 @@ namespace Toolsfactory.Protocols.Homie
     public static class Constants
     {
         public const string ProtocolVersion = "4.0.0";
-        public const string Implementation = "Tiveria.Home.Homie for .Net 5";
+        public const string Implementation = "Toolsfactory.Protocols.Homie for .Net";
         public const string SetValueTopic = "set";
         public const string BroadcastTopic = "$broadcast";
         public const char LevelSeparator = '/';

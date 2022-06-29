@@ -18,8 +18,8 @@
         public const string Stats = "$stats";
         public const string StatsUptime = Stats + "/uptime";
         public const string StatsInterval = Stats + "/interval";
-        public const string LocalIP = "localip";
-        public const string Mac = "mac";
+        public const string LocalIP = "$localip";
+        public const string Mac = "$mac";
         public const string Firmware = "$fw";
         public const string FirmwareName = Firmware + "/name";
         public const string FirmwareVersion = Firmware + "/version";
